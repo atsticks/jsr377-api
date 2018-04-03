@@ -5,7 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -13,13 +13,24 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package javax.application.action;
 
-include 'jsr377-spec'
-include 'jsr377-api'
+/**
+ * @author Andres Almiray
+ */
+public enum ActionExecutionStatus {
+    /**
+     * The Action was successfully executed
+     */
+    OK,
 
-rootProject.name = 'jsr377-parent'
-rootProject.children.each { project ->
-    project.buildFileName = "${project.name}.gradle"
-    assert project.projectDir.isDirectory()
-    assert project.buildFile.isFile()
+    /**
+     * An action interceptor aborted execution during before()
+     */
+    ABORTED,
+
+    /**
+     * The Action threw an exception during its execution
+     */
+    EXCEPTION
 }

@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-include 'jsr377-spec'
-include 'jsr377-api'
+apply plugin: 'java'
 
-rootProject.name = 'jsr377-parent'
-rootProject.children.each { project ->
-    project.buildFileName = "${project.name}.gradle"
-    assert project.projectDir.isDirectory()
-    assert project.buildFile.isFile()
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile 'javax.inject:javax.inject:1'
 }
